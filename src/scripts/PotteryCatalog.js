@@ -1,10 +1,10 @@
 const potCatalog = [];
 
-export const toSellOrNotTOSell = (pot) => {
+export const toSellOrNotToSell = (pot) => {
   if (pot.cracked) {
     return pot;
-  }
-  if (pot.weight >= 6) {
+    // pot.price = 2.5;
+  } else if (pot.weight >= 6) {
     pot.price = 40;
   } else {
     pot.price = 20;

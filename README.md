@@ -114,18 +114,33 @@ In the `main.js` module, invoke the `PotteryList` component function. Take its r
 
 **THEN PUSH YOUR CODE TO GITHUB**
 
-
 ## Vocabulary and Understanding
 
 > 🧨 Before you click the "Assessment Complete" button on the Learning Platform, add your answers below for each question and make a commit. It is your option to request a face-to-face meeting with a coach for a vocabulary review.
 
 1. Explain how you got the HTML, with the correct data, displayed in the browser?
-   > Your answer here
+   > I used the PotteryWheel function to create a pottery Object. I then passed that Object into the Kiln function to add the Key/Values fired and cracked. I passed that new Object into the sellOrNotToSell function to add the Price Key/Value and to filter out the cracked Pottery and push the pottery that isnt cracked into the empty potCatalog Array. I passed the potCatalog Array into the usePottery function so that I could return a structuredClone of the potCatalog Array. I then passed the StructuredClone Array into the PotteryList function to created an HTML string that loops over the StructuredClone that renders to the DOM.
 2. In the **PotteryList** module, when you iterate your pottery, you need to show the evidence of what the **weight** property's value is for the 2nd piece of pottery. Use [Loom](https://www.loom.com/) to record your browser window with the developer tools open and show those values.
-   > Paste your video's public URL here
+   > [Paste your video's public URL here](https://www.loom.com/share/0f972124c6684295a1de8f251c5575f6?sid=fac76713-d301-4689-8ded-784212fd07cf)
 3. The **PotteryWheel** module has a single function named `makePottery`. Why doesn't that module have all of the other code in it?
-   > Your answer here
+   > In order to keep our code/projects organized and readable we need to modularize our code into smaller chunks. This also helps with debugging our code so that we can test things individually without affecting the entire project. Modularizing our code also helps us revise the code later when the needs of the project change.
 4. The pottery shop has learned that there is a set of customers that are willing to buy cracked pottery at a discounted price of $2.50. That means that the cracked pottery should now be displayed in the catalog. Explain the changes that this new business strategy would cause to your algorithm.
-   > Your answer here
+   export const toSellOrNotTOSell = (pot) => {
+   if (pot.cracked) {
+   // return pot; // <<-- I would have to change the IF statement to set the cracked pots to 2.5 instead of returning the cracked pot
+   pot.price = 2.5; <<--
+   } else if (pot.weight >= 6) {
+   pot.price = 40;
+   } else {
+   pot.price = 20;
+   }
+   potCatalog.push(pot);
+   return pot;
+   };
+
+export const usePottery = () => {
+return structuredClone(potCatalog);
+};
+
 5. In the **Kiln** module, you have a `firePottery()` function. You need to demonstrate how to use the debugger to verify the values of the parameters for that function when your code runs. Use [Loom](https://www.loom.com/) to record your browser window with the developer tools open and show those values.
-   > Paste your video's public URL here
+   > https://www.loom.com/share/1a2891610d6f4806a23d517c909d0682?sid=1c0b3ffc-58dd-41e2-aed9-916905e23d0e
